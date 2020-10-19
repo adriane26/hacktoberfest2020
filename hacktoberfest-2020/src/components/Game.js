@@ -40,13 +40,14 @@ const Game = () => {
   return (
     <>
       <h1>Spooky Tic Tac Toe</h1>
+      {winner && (<h1>{winner} won!</h1>)}
       <Board squares={history[stepNumber]} onClick={handleClick} />
       <div className="info-wrapper">
         <div>
           <h3>History</h3>
           {renderMoves()}
         </div>
-        <h3>{winner ? `${winner} won!` : `${player}'s turn`}</h3>
+        {!winner && <h3>{player}'s turn</h3>}
       </div>
     </>
   );
