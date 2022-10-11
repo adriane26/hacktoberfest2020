@@ -27,6 +27,12 @@ const Game = () => {
     setGhostisNext(step % 2 === 0);
   };
 
+  const playAgain = () => {
+    setHistory([Array(9).fill(null)]);
+    jumpTo(0);
+    renderMoves();
+  }
+
   const renderMoves = () =>
     history.map((_step, move) => {
       const destination = move ? `Go to move #${move}` : "Go to Start";
@@ -40,7 +46,7 @@ const Game = () => {
   return (
     <>
       <h1>Spooky Tic Tac Toe</h1>
-      {winner && (<h1>{winner} won!</h1>)}
+      {winner && (<div><h1>{winner} won!</h1> <button onClick={() => playAgain()}>play again</button></div>)}
       <Board squares={history[stepNumber]} onClick={handleClick} />
       <div className="info-wrapper">
         <div>
