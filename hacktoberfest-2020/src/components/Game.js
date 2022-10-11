@@ -46,7 +46,7 @@ const Game = () => {
   return (
     <>
       <h1>Spooky Tic Tac Toe</h1>
-      {winner && (<div><h1>{winner} won!</h1> <button onClick={() => playAgain()}>play again</button></div>)}
+      {winner && (<div><h1>{winner} won!</h1> <button className="play-again" onClick={() => playAgain()}>play again</button></div>)}
       <Board squares={history[stepNumber]} onClick={handleClick} />
       <div className="info-wrapper">
         <div>
